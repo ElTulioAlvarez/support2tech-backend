@@ -17,10 +17,8 @@ export function createServer() {
   // Infra
   const profileRepo = new PrismaProfileRepository(prisma);
 
-  // ✅ Un solo validador JWT (ver punto 2)
-  const authService = new SupabaseJwtAuthService({
-    supabaseUrl: process.env.SUPABASE_URL!,
-  });
+  // ✅ Un solo validador JWT
+  const authService = new SupabaseJwtAuthService();
 
   const authMw = requireAuth(authService);
   const adminOnly = requireRole("admin");
