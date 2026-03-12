@@ -1,18 +1,40 @@
-import { Router } from "express";
-import { requireAuth } from "../auth/presentation/http/middlewares/requireAuth.js";
+import { PrismaTechnicianRepository } from "./infrastructure/repositories/PrismaTechnicianRepository.js";
+import { ListTechniciansUseCase } from "./application/use-cases/ListTechniciansUseCase.js";
+import { GetTechnicianByIdUseCase } from "./application/use-cases/GetTechnicianByIdUseCase.js";
+import { GetTechnicianCalendarUseCase } from "./application/use-cases/GetTechnicianCalendarUseCase.js";
+import { CreateTechnicianUseCase } from "./application/use-cases/CreateTechnicianUseCase.js";
+import { UpdateTechnicianUseCase } from "./application/use-cases/UpdateTechnicianUseCase.js";
+import { DeleteTechnicianUseCase } from "./application/use-cases/DeleteTechnicianUseCase.js";
+import { buildTechnicianRouter } from "./presentation/http/routes/technician.routes.js";
 export function createTechniciansModule(deps) {
-    const router = Router();
-    const authMw = requireAuth(deps.auth.useCases.verifyAccessTokenUseCase);
-    router.get("/_module", authMw, (_req, res) => {
-        res.json({
-            module: "technicians",
-            status: "scaffold-ready",
-            next: ["technician queries", "assignment flows", "availability use-cases"],
-        });
-    });
+    const technicianRepository = new PrismaTechnicianRepository(deps.prisma);
+    const listTechniciansUseCase = new ListTechniciansUseCase(technicianRepository);
+    const getTechnicianByIdUseCase = new GetTechnicianByIdUseCase(technicianRepository);
+    const getTechnicianCalendarUseCase = new GetTechnicianCalendarUseCase(technicianRepository);
+    const createTechnicianUseCase = new CreateTechnicianUseCase(technicianRepository);
+    const updateTechnicianUseCase = new UpdateTechnicianUseCase(technicianRepository);
+    const deleteTechnicianUseCase = new DeleteTechnicianUseCase(technicianRepository);
     return {
+        repositories: { technicianRepository },
+        useCases: {
+            listTechniciansUseCase,
+            getTechnicianByIdUseCase,
+            getTechnicianCalendarUseCase,
+            createTechnicianUseCase,
+            updateTechnicianUseCase,
+            deleteTechnicianUseCase,
+        },
         register(app) {
-            app.use("/api/technicians", router);
+            app.use("/api/technicians", buildTechnicianRouter({
+                verifyAccessTokenUseCase: deps.auth.useCases.verifyAccessTokenUseCase,
+                ensureActiveProfileUseCase: deps.accounts.useCases.ensureActiveProfileUseCase,
+                listTechniciansUseCase,
+                getTechnicianByIdUseCase,
+                getTechnicianCalendarUseCase,
+                createTechnicianUseCase,
+                updateTechnicianUseCase,
+                deleteTechnicianUseCase,
+            }));
         },
     };
 }

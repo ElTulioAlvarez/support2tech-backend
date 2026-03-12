@@ -1,6 +1,6 @@
 generator client {
   provider        = "prisma-client"
-  output          = "../src/infrastructure/db/generated/prisma"
+  output          = "../src/shared/infrastructure/db/generated/prisma"
   previewFeatures = ["partialIndexes"]
 }
 

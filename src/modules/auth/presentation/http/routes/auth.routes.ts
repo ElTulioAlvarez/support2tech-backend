@@ -1,15 +1,15 @@
 import { Router } from "express";
+import type { TokenVerifier } from "../../../../../shared/contracts/security.js";
+import { requireAuth } from "../../../../../shared/presentation/http/middlewares/requireAuth.js";
 import type { LoginUseCase } from "../../../application/use-cases/LoginUseCase.js";
-import type { VerifyAccessTokenUseCase } from "../../../application/use-cases/VerifyAccessTokenUseCase.js";
-import { requireAuth } from "../middlewares/requireAuth.js";
 import { asyncHandler } from "../../../../../shared/presentation/http/middlewares/asyncHandler.js";
 
 export function buildAuthRouter(deps: {
   loginUseCase: LoginUseCase;
-  verifyAccessTokenUseCase: VerifyAccessTokenUseCase;
+  tokenVerifier: TokenVerifier;
 }) {
   const router = Router();
-  const authMw = requireAuth(deps.verifyAccessTokenUseCase);
+  const authMw = requireAuth(deps.tokenVerifier);
 
   router.post(
     "/login",

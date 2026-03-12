@@ -1,8 +1,9 @@
+import { ForbiddenError } from "../../../domain/errors/AppError.js";
 import "../types/request-context.js";
 export function requireRole(role) {
-    return function (req, res, next) {
+    return function (req, _res, next) {
         if (req.auth?.role !== role) {
-            return res.status(403).json({ error: "Forbidden" });
+            return next(new ForbiddenError(`Se requiere rol ${role}`));
         }
         next();
     };

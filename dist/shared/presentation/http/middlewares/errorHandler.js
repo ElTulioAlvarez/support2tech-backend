@@ -1,11 +1,18 @@
+import { AppError } from "../../../domain/errors/AppError.js";
 export const errorHandler = (error, _req, res, _next) => {
-    const message = error instanceof Error ? error.message : "Internal server error";
-    const statusCode = typeof error?.statusCode === "number"
-        ? (error.statusCode)
-        : 500;
-    if (statusCode >= 500) {
+    const appError = error instanceof AppError
+        ? error
+        : new AppError(error instanceof Error ? error.message : "Internal server error", 500, "INTERNAL_ERROR");
+    if (appError.statusCode >= 500) {
         console.error(error);
     }
-    res.status(statusCode).json({ error: message });
+    res.status(appError.statusCode).json({
+        ok: false,
+        error: {
+            message: appError.message,
+            code: appError.code,
+            details: appError.details,
+        },
+    });
 };
 //# sourceMappingURL=errorHandler.js.map

@@ -25,15 +25,56 @@ export declare function buildContainer(): {
             register(app: import("express").Express): void;
         };
         projects: {
+            repositories: {
+                projectRepository: import("../modules/projects/infrastructure/repositories/PrismaProjectRepository.js").PrismaProjectRepository;
+            };
+            useCases: {
+                listProjectsUseCase: import("../modules/projects/application/use-cases/ListProjectsUseCase.js").ListProjectsUseCase;
+                getProjectByIdUseCase: import("../modules/projects/application/use-cases/GetProjectByIdUseCase.js").GetProjectByIdUseCase;
+                createProjectUseCase: import("../modules/projects/application/use-cases/CreateProjectUseCase.js").CreateProjectUseCase;
+                updateProjectUseCase: import("../modules/projects/application/use-cases/UpdateProjectUseCase.js").UpdateProjectUseCase;
+                deleteProjectUseCase: import("../modules/projects/application/use-cases/DeleteProjectUseCase.js").DeleteProjectUseCase;
+            };
             register(app: import("express").Express): void;
         };
         calendar: {
+            repositories: {
+                calendarRepository: import("../modules/calendar/infrastructure/repositories/PrismaCalendarRepository.js").PrismaCalendarRepository;
+            };
+            useCases: {
+                listCalendarTasksUseCase: import("../modules/calendar/application/use-cases/ListCalendarTasksUseCase.js").ListCalendarTasksUseCase;
+                getCalendarTaskByIdUseCase: import("../modules/calendar/application/use-cases/GetCalendarTaskByIdUseCase.js").GetCalendarTaskByIdUseCase;
+                createCalendarTaskUseCase: import("../modules/calendar/application/use-cases/CreateCalendarTaskUseCase.js").CreateCalendarTaskUseCase;
+                updateCalendarTaskUseCase: import("../modules/calendar/application/use-cases/UpdateCalendarTaskUseCase.js").UpdateCalendarTaskUseCase;
+                deleteCalendarTaskUseCase: import("../modules/calendar/application/use-cases/DeleteCalendarTaskUseCase.js").DeleteCalendarTaskUseCase;
+            };
             register(app: import("express").Express): void;
         };
         reports: {
+            repositories: {
+                reportRepository: import("../modules/reports/infrastructure/repositories/PrismaReportRepository.js").PrismaReportRepository;
+            };
+            useCases: {
+                listReportsUseCase: import("../modules/reports/application/use-cases/ListReportsUseCase.js").ListReportsUseCase;
+                getReportByIdUseCase: import("../modules/reports/application/use-cases/GetReportByIdUseCase.js").GetReportByIdUseCase;
+                createReportUseCase: import("../modules/reports/application/use-cases/CreateReportUseCase.js").CreateReportUseCase;
+                updateReportUseCase: import("../modules/reports/application/use-cases/UpdateReportUseCase.js").UpdateReportUseCase;
+                deleteReportUseCase: import("../modules/reports/application/use-cases/DeleteReportUseCase.js").DeleteReportUseCase;
+            };
             register(app: import("express").Express): void;
         };
         technicians: {
+            repositories: {
+                technicianRepository: import("../modules/technicians/infrastructure/repositories/PrismaTechnicianRepository.js").PrismaTechnicianRepository;
+            };
+            useCases: {
+                listTechniciansUseCase: import("../modules/technicians/application/use-cases/ListTechniciansUseCase.js").ListTechniciansUseCase;
+                getTechnicianByIdUseCase: import("../modules/technicians/application/use-cases/GetTechnicianByIdUseCase.js").GetTechnicianByIdUseCase;
+                getTechnicianCalendarUseCase: import("../modules/technicians/application/use-cases/GetTechnicianCalendarUseCase.js").GetTechnicianCalendarUseCase;
+                createTechnicianUseCase: import("../modules/technicians/application/use-cases/CreateTechnicianUseCase.js").CreateTechnicianUseCase;
+                updateTechnicianUseCase: import("../modules/technicians/application/use-cases/UpdateTechnicianUseCase.js").UpdateTechnicianUseCase;
+                deleteTechnicianUseCase: import("../modules/technicians/application/use-cases/DeleteTechnicianUseCase.js").DeleteTechnicianUseCase;
+            };
             register(app: import("express").Express): void;
         };
     };

@@ -13,10 +13,10 @@ export function buildContainer() {
 
   const auth = createAuthModule({ prisma: shared.db.prisma });
   const accounts = createAccountsModule({ prisma: shared.db.prisma, auth });
-  const projects = createProjectsModule({ prisma: shared.db.prisma, auth });
-  const calendar = createCalendarModule({ prisma: shared.db.prisma, auth });
-  const reports = createReportsModule({ prisma: shared.db.prisma, auth });
-  const technicians = createTechniciansModule({ prisma: shared.db.prisma, auth });
+  const projects = createProjectsModule({ prisma: shared.db.prisma, auth, accounts });
+  const calendar = createCalendarModule({ prisma: shared.db.prisma, auth, accounts });
+  const reports = createReportsModule({ prisma: shared.db.prisma, auth, accounts });
+  const technicians = createTechniciansModule({ prisma: shared.db.prisma, auth, accounts });
 
   return {
     shared,

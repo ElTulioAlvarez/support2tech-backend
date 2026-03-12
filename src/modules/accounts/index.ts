@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import type { PrismaClient } from "../../shared/infrastructure/db/generated/prisma/client.js";
 import type { AuthModule } from "../auth/index.js";
+import type { CurrentUserResolver } from "../../shared/contracts/security.js";
 import { EnsureActiveProfileUseCase } from "./application/use-cases/EnsureActiveProfileUseCase.js";
 import { GetMyProfileUseCase } from "./application/use-cases/GetMyProfileUseCase.js";
 import { GetRoleByUserIdUseCase } from "./application/use-cases/GetRoleByUserIdUseCase.js";
@@ -12,8 +13,14 @@ export function createAccountsModule(deps: { prisma: PrismaClient; auth: AuthMod
   const getMyProfileUseCase = new GetMyProfileUseCase(profileRepository);
   const getRoleByUserIdUseCase = new GetRoleByUserIdUseCase(profileRepository);
   const ensureActiveProfileUseCase = new EnsureActiveProfileUseCase(profileRepository);
+  const currentUserResolver: CurrentUserResolver = {
+    getActiveProfile: (userId) => ensureActiveProfileUseCase.execute(userId),
+  };
 
   return {
+    contracts: {
+      currentUserResolver,
+    },
     repositories: {
       profileRepository,
     },
@@ -27,8 +34,8 @@ export function createAccountsModule(deps: { prisma: PrismaClient; auth: AuthMod
         "/api/account",
         buildAccountRouter({
           getMyProfileUseCase,
-          ensureActiveProfileUseCase,
-          verifyAccessTokenUseCase: deps.auth.useCases.verifyAccessTokenUseCase,
+          currentUserResolver,
+          tokenVerifier: deps.auth.contracts.tokenVerifier,
         }),
       );
     },

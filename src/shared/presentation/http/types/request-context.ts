@@ -1,5 +1,4 @@
-import type { UserRole } from "../../../../modules/accounts/domain/entities/Profile.js";
-import type { Profile } from "../../../../modules/accounts/domain/entities/Profile.js";
+import type { CurrentUserProfile, UserRole } from "../../../contracts/security.js";
 
 declare global {
   namespace Express {
@@ -9,7 +8,7 @@ declare global {
         email: string | null;
         role?: UserRole | null;
       };
-      currentProfile?: Profile;
+      currentProfile?: CurrentUserProfile;
     }
   }
 }

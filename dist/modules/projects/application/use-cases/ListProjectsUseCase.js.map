@@ -1,0 +1,1 @@
+{"version":3,"file":"ListProjectsUseCase.js","sourceRoot":"","sources":["../../../../../src/modules/projects/application/use-cases/ListProjectsUseCase.ts"],"names":[],"mappings":"AAGA,MAAM,OAAO,mBAAmB;IACD;IAA7B,YAA6B,iBAAoC;QAApC,sBAAiB,GAAjB,iBAAiB,CAAmB;IAAG,CAAC;IAErE,OAAO,CAAC,OAA2B;QACjC,OAAO,IAAI,CAAC,iBAAiB,CAAC,QAAQ,CAAC,OAAO,CAAC,CAAC;IAClD,CAAC;CACF"}

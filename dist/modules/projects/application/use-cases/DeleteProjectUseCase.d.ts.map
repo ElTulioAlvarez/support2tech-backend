@@ -1,0 +1,1 @@
+{"version":3,"file":"DeleteProjectUseCase.d.ts","sourceRoot":"","sources":["../../../../../src/modules/projects/application/use-cases/DeleteProjectUseCase.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,gDAAgD,CAAC;AAExF,qBAAa,oBAAoB;IACnB,OAAO,CAAC,QAAQ,CAAC,iBAAiB;gBAAjB,iBAAiB,EAAE,iBAAiB;IAE3D,OAAO,CAAC,EAAE,EAAE,MAAM;;;CAKzB"}
