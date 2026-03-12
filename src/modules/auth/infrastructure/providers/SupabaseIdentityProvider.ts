@@ -4,10 +4,7 @@ import { supabaseAuth } from "./supabaseClient.js";
 
 export class SupabaseIdentityProvider implements IdentityProvider {
   async login(email: string, password: string): Promise<LoginResult> {
-    const { data, error } = await supabaseAuth.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const { data, error } = await supabaseAuth.auth.signInWithPassword({ email, password });
 
     if (error || !data.session || !data.user) {
       throw new Error(error?.message ?? "Credenciales inválidas");
@@ -28,7 +25,7 @@ export class SupabaseIdentityProvider implements IdentityProvider {
   async verifyAccessToken(token: string): Promise<AuthIdentity> {
     const { data, error } = await supabaseAuth.auth.getUser(token);
 
-    if (error || !data?.user?.id) {
+    if (error || !data.user?.id) {
       throw new Error("Invalid token");
     }
 

@@ -3,7 +3,7 @@ import type { ProfileRepository } from "../../domain/repositories/ProfileReposit
 export class GetMyProfileUseCase {
   constructor(private readonly profileRepository: ProfileRepository) {}
 
-  async execute(userId: string) {
+  execute(userId: string) {
     return this.profileRepository.findById(userId);
   }
 }

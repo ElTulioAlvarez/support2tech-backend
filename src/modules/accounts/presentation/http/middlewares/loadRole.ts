@@ -1,18 +1,30 @@
-import type { NextFunction, Request, Response } from "express";
-import type { GetRoleByUserIdUseCase } from "../../../application/use-cases/GetRoleByUserIdUseCase.js";
+import type { Request, Response, NextFunction } from "express";
+import type { EnsureActiveProfileUseCase } from "../../../application/use-cases/EnsureActiveProfileUseCase.js";
 
-export const loadRole = (getRoleByUserIdUseCase: GetRoleByUserIdUseCase) =>
-  async (req: Request, res: Response, next: NextFunction) => {
+declare global {
+  namespace Express {
+    interface Request {
+      role?: string | null;
+    }
+  }
+}
+
+export function loadRole(ensureActiveProfileUseCase: EnsureActiveProfileUseCase) {
+  return async function (req: Request, res: Response, next: NextFunction) {
     try {
-      const userId = req.auth?.userId;
-      if (!userId) return res.status(401).json({ message: "Unauthorized" });
+      if (!req.auth?.userId) {
+        return res.status(401).json({ error: "Usuario no autenticado" });
+      }
 
-      const role = await getRoleByUserIdUseCase.execute(userId);
-      if (!role) return res.status(403).json({ message: "Profile not found or inactive" });
+      const profile = await ensureActiveProfileUseCase.execute(req.auth.userId);
+      req.role = profile.rol;
 
-      req.auth = { ...req.auth, role };
       next();
-    } catch {
-      return res.status(500).json({ message: "Unable to load role" });
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "No fue posible cargar el rol";
+
+      return res.status(403).json({ error: message });
     }
   };
+}

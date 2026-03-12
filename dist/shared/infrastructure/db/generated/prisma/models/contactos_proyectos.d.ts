@@ -1,0 +1,1278 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model contactos_proyectos
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
+ */
+export type contactos_proyectosModel = runtime.Types.Result.DefaultSelection<Prisma.$contactos_proyectosPayload>;
+export type AggregateContactos_proyectos = {
+    _count: Contactos_proyectosCountAggregateOutputType | null;
+    _min: Contactos_proyectosMinAggregateOutputType | null;
+    _max: Contactos_proyectosMaxAggregateOutputType | null;
+};
+export type Contactos_proyectosMinAggregateOutputType = {
+    id: string | null;
+    proyecto_id: string | null;
+    nombre: string | null;
+    cargo: string | null;
+    telefono: string | null;
+    correo: string | null;
+    creado_fecha: Date | null;
+    modificado_fecha: Date | null;
+};
+export type Contactos_proyectosMaxAggregateOutputType = {
+    id: string | null;
+    proyecto_id: string | null;
+    nombre: string | null;
+    cargo: string | null;
+    telefono: string | null;
+    correo: string | null;
+    creado_fecha: Date | null;
+    modificado_fecha: Date | null;
+};
+export type Contactos_proyectosCountAggregateOutputType = {
+    id: number;
+    proyecto_id: number;
+    nombre: number;
+    cargo: number;
+    telefono: number;
+    correo: number;
+    creado_fecha: number;
+    modificado_fecha: number;
+    _all: number;
+};
+export type Contactos_proyectosMinAggregateInputType = {
+    id?: true;
+    proyecto_id?: true;
+    nombre?: true;
+    cargo?: true;
+    telefono?: true;
+    correo?: true;
+    creado_fecha?: true;
+    modificado_fecha?: true;
+};
+export type Contactos_proyectosMaxAggregateInputType = {
+    id?: true;
+    proyecto_id?: true;
+    nombre?: true;
+    cargo?: true;
+    telefono?: true;
+    correo?: true;
+    creado_fecha?: true;
+    modificado_fecha?: true;
+};
+export type Contactos_proyectosCountAggregateInputType = {
+    id?: true;
+    proyecto_id?: true;
+    nombre?: true;
+    cargo?: true;
+    telefono?: true;
+    correo?: true;
+    creado_fecha?: true;
+    modificado_fecha?: true;
+    _all?: true;
+};
+export type Contactos_proyectosAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which contactos_proyectos to aggregate.
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of contactos_proyectos to fetch.
+     */
+    orderBy?: Prisma.contactos_proyectosOrderByWithRelationInput | Prisma.contactos_proyectosOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.contactos_proyectosWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` contactos_proyectos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` contactos_proyectos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned contactos_proyectos
+    **/
+    _count?: true | Contactos_proyectosCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: Contactos_proyectosMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: Contactos_proyectosMaxAggregateInputType;
+};
+export type GetContactos_proyectosAggregateType<T extends Contactos_proyectosAggregateArgs> = {
+    [P in keyof T & keyof AggregateContactos_proyectos]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateContactos_proyectos[P]> : Prisma.GetScalarType<T[P], AggregateContactos_proyectos[P]>;
+};
+export type contactos_proyectosGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.contactos_proyectosWhereInput;
+    orderBy?: Prisma.contactos_proyectosOrderByWithAggregationInput | Prisma.contactos_proyectosOrderByWithAggregationInput[];
+    by: Prisma.Contactos_proyectosScalarFieldEnum[] | Prisma.Contactos_proyectosScalarFieldEnum;
+    having?: Prisma.contactos_proyectosScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: Contactos_proyectosCountAggregateInputType | true;
+    _min?: Contactos_proyectosMinAggregateInputType;
+    _max?: Contactos_proyectosMaxAggregateInputType;
+};
+export type Contactos_proyectosGroupByOutputType = {
+    id: string;
+    proyecto_id: string;
+    nombre: string;
+    cargo: string | null;
+    telefono: string | null;
+    correo: string | null;
+    creado_fecha: Date;
+    modificado_fecha: Date;
+    _count: Contactos_proyectosCountAggregateOutputType | null;
+    _min: Contactos_proyectosMinAggregateOutputType | null;
+    _max: Contactos_proyectosMaxAggregateOutputType | null;
+};
+type GetContactos_proyectosGroupByPayload<T extends contactos_proyectosGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<Contactos_proyectosGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof Contactos_proyectosGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], Contactos_proyectosGroupByOutputType[P]> : Prisma.GetScalarType<T[P], Contactos_proyectosGroupByOutputType[P]>;
+}>>;
+export type contactos_proyectosWhereInput = {
+    AND?: Prisma.contactos_proyectosWhereInput | Prisma.contactos_proyectosWhereInput[];
+    OR?: Prisma.contactos_proyectosWhereInput[];
+    NOT?: Prisma.contactos_proyectosWhereInput | Prisma.contactos_proyectosWhereInput[];
+    id?: Prisma.UuidFilter<"contactos_proyectos"> | string;
+    proyecto_id?: Prisma.UuidFilter<"contactos_proyectos"> | string;
+    nombre?: Prisma.StringFilter<"contactos_proyectos"> | string;
+    cargo?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    telefono?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    correo?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    creado_fecha?: Prisma.DateTimeFilter<"contactos_proyectos"> | Date | string;
+    modificado_fecha?: Prisma.DateTimeFilter<"contactos_proyectos"> | Date | string;
+    proyectos?: Prisma.XOR<Prisma.ProyectosScalarRelationFilter, Prisma.proyectosWhereInput>;
+};
+export type contactos_proyectosOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    cargo?: Prisma.SortOrderInput | Prisma.SortOrder;
+    telefono?: Prisma.SortOrderInput | Prisma.SortOrder;
+    correo?: Prisma.SortOrderInput | Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+    proyectos?: Prisma.proyectosOrderByWithRelationInput;
+};
+export type contactos_proyectosWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    AND?: Prisma.contactos_proyectosWhereInput | Prisma.contactos_proyectosWhereInput[];
+    OR?: Prisma.contactos_proyectosWhereInput[];
+    NOT?: Prisma.contactos_proyectosWhereInput | Prisma.contactos_proyectosWhereInput[];
+    proyecto_id?: Prisma.UuidFilter<"contactos_proyectos"> | string;
+    nombre?: Prisma.StringFilter<"contactos_proyectos"> | string;
+    cargo?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    telefono?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    correo?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    creado_fecha?: Prisma.DateTimeFilter<"contactos_proyectos"> | Date | string;
+    modificado_fecha?: Prisma.DateTimeFilter<"contactos_proyectos"> | Date | string;
+    proyectos?: Prisma.XOR<Prisma.ProyectosScalarRelationFilter, Prisma.proyectosWhereInput>;
+}, "id">;
+export type contactos_proyectosOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    cargo?: Prisma.SortOrderInput | Prisma.SortOrder;
+    telefono?: Prisma.SortOrderInput | Prisma.SortOrder;
+    correo?: Prisma.SortOrderInput | Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+    _count?: Prisma.contactos_proyectosCountOrderByAggregateInput;
+    _max?: Prisma.contactos_proyectosMaxOrderByAggregateInput;
+    _min?: Prisma.contactos_proyectosMinOrderByAggregateInput;
+};
+export type contactos_proyectosScalarWhereWithAggregatesInput = {
+    AND?: Prisma.contactos_proyectosScalarWhereWithAggregatesInput | Prisma.contactos_proyectosScalarWhereWithAggregatesInput[];
+    OR?: Prisma.contactos_proyectosScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.contactos_proyectosScalarWhereWithAggregatesInput | Prisma.contactos_proyectosScalarWhereWithAggregatesInput[];
+    id?: Prisma.UuidWithAggregatesFilter<"contactos_proyectos"> | string;
+    proyecto_id?: Prisma.UuidWithAggregatesFilter<"contactos_proyectos"> | string;
+    nombre?: Prisma.StringWithAggregatesFilter<"contactos_proyectos"> | string;
+    cargo?: Prisma.StringNullableWithAggregatesFilter<"contactos_proyectos"> | string | null;
+    telefono?: Prisma.StringNullableWithAggregatesFilter<"contactos_proyectos"> | string | null;
+    correo?: Prisma.StringNullableWithAggregatesFilter<"contactos_proyectos"> | string | null;
+    creado_fecha?: Prisma.DateTimeWithAggregatesFilter<"contactos_proyectos"> | Date | string;
+    modificado_fecha?: Prisma.DateTimeWithAggregatesFilter<"contactos_proyectos"> | Date | string;
+};
+export type contactos_proyectosCreateInput = {
+    id?: string;
+    nombre: string;
+    cargo?: string | null;
+    telefono?: string | null;
+    correo?: string | null;
+    creado_fecha?: Date | string;
+    modificado_fecha?: Date | string;
+    proyectos: Prisma.proyectosCreateNestedOneWithoutContactos_proyectosInput;
+};
+export type contactos_proyectosUncheckedCreateInput = {
+    id?: string;
+    proyecto_id: string;
+    nombre: string;
+    cargo?: string | null;
+    telefono?: string | null;
+    correo?: string | null;
+    creado_fecha?: Date | string;
+    modificado_fecha?: Date | string;
+};
+export type contactos_proyectosUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    proyectos?: Prisma.proyectosUpdateOneRequiredWithoutContactos_proyectosNestedInput;
+};
+export type contactos_proyectosUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proyecto_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type contactos_proyectosCreateManyInput = {
+    id?: string;
+    proyecto_id: string;
+    nombre: string;
+    cargo?: string | null;
+    telefono?: string | null;
+    correo?: string | null;
+    creado_fecha?: Date | string;
+    modificado_fecha?: Date | string;
+};
+export type contactos_proyectosUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type contactos_proyectosUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proyecto_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type contactos_proyectosCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    cargo?: Prisma.SortOrder;
+    telefono?: Prisma.SortOrder;
+    correo?: Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+};
+export type contactos_proyectosMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    cargo?: Prisma.SortOrder;
+    telefono?: Prisma.SortOrder;
+    correo?: Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+};
+export type contactos_proyectosMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    cargo?: Prisma.SortOrder;
+    telefono?: Prisma.SortOrder;
+    correo?: Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+};
+export type Contactos_proyectosListRelationFilter = {
+    every?: Prisma.contactos_proyectosWhereInput;
+    some?: Prisma.contactos_proyectosWhereInput;
+    none?: Prisma.contactos_proyectosWhereInput;
+};
+export type contactos_proyectosOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type contactos_proyectosCreateNestedManyWithoutProyectosInput = {
+    create?: Prisma.XOR<Prisma.contactos_proyectosCreateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput> | Prisma.contactos_proyectosCreateWithoutProyectosInput[] | Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput | Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput[];
+    createMany?: Prisma.contactos_proyectosCreateManyProyectosInputEnvelope;
+    connect?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+};
+export type contactos_proyectosUncheckedCreateNestedManyWithoutProyectosInput = {
+    create?: Prisma.XOR<Prisma.contactos_proyectosCreateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput> | Prisma.contactos_proyectosCreateWithoutProyectosInput[] | Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput | Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput[];
+    createMany?: Prisma.contactos_proyectosCreateManyProyectosInputEnvelope;
+    connect?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+};
+export type contactos_proyectosUpdateManyWithoutProyectosNestedInput = {
+    create?: Prisma.XOR<Prisma.contactos_proyectosCreateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput> | Prisma.contactos_proyectosCreateWithoutProyectosInput[] | Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput | Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput[];
+    upsert?: Prisma.contactos_proyectosUpsertWithWhereUniqueWithoutProyectosInput | Prisma.contactos_proyectosUpsertWithWhereUniqueWithoutProyectosInput[];
+    createMany?: Prisma.contactos_proyectosCreateManyProyectosInputEnvelope;
+    set?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    disconnect?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    delete?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    connect?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    update?: Prisma.contactos_proyectosUpdateWithWhereUniqueWithoutProyectosInput | Prisma.contactos_proyectosUpdateWithWhereUniqueWithoutProyectosInput[];
+    updateMany?: Prisma.contactos_proyectosUpdateManyWithWhereWithoutProyectosInput | Prisma.contactos_proyectosUpdateManyWithWhereWithoutProyectosInput[];
+    deleteMany?: Prisma.contactos_proyectosScalarWhereInput | Prisma.contactos_proyectosScalarWhereInput[];
+};
+export type contactos_proyectosUncheckedUpdateManyWithoutProyectosNestedInput = {
+    create?: Prisma.XOR<Prisma.contactos_proyectosCreateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput> | Prisma.contactos_proyectosCreateWithoutProyectosInput[] | Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput | Prisma.contactos_proyectosCreateOrConnectWithoutProyectosInput[];
+    upsert?: Prisma.contactos_proyectosUpsertWithWhereUniqueWithoutProyectosInput | Prisma.contactos_proyectosUpsertWithWhereUniqueWithoutProyectosInput[];
+    createMany?: Prisma.contactos_proyectosCreateManyProyectosInputEnvelope;
+    set?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    disconnect?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    delete?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    connect?: Prisma.contactos_proyectosWhereUniqueInput | Prisma.contactos_proyectosWhereUniqueInput[];
+    update?: Prisma.contactos_proyectosUpdateWithWhereUniqueWithoutProyectosInput | Prisma.contactos_proyectosUpdateWithWhereUniqueWithoutProyectosInput[];
+    updateMany?: Prisma.contactos_proyectosUpdateManyWithWhereWithoutProyectosInput | Prisma.contactos_proyectosUpdateManyWithWhereWithoutProyectosInput[];
+    deleteMany?: Prisma.contactos_proyectosScalarWhereInput | Prisma.contactos_proyectosScalarWhereInput[];
+};
+export type contactos_proyectosCreateWithoutProyectosInput = {
+    id?: string;
+    nombre: string;
+    cargo?: string | null;
+    telefono?: string | null;
+    correo?: string | null;
+    creado_fecha?: Date | string;
+    modificado_fecha?: Date | string;
+};
+export type contactos_proyectosUncheckedCreateWithoutProyectosInput = {
+    id?: string;
+    nombre: string;
+    cargo?: string | null;
+    telefono?: string | null;
+    correo?: string | null;
+    creado_fecha?: Date | string;
+    modificado_fecha?: Date | string;
+};
+export type contactos_proyectosCreateOrConnectWithoutProyectosInput = {
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+    create: Prisma.XOR<Prisma.contactos_proyectosCreateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput>;
+};
+export type contactos_proyectosCreateManyProyectosInputEnvelope = {
+    data: Prisma.contactos_proyectosCreateManyProyectosInput | Prisma.contactos_proyectosCreateManyProyectosInput[];
+    skipDuplicates?: boolean;
+};
+export type contactos_proyectosUpsertWithWhereUniqueWithoutProyectosInput = {
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+    update: Prisma.XOR<Prisma.contactos_proyectosUpdateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedUpdateWithoutProyectosInput>;
+    create: Prisma.XOR<Prisma.contactos_proyectosCreateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedCreateWithoutProyectosInput>;
+};
+export type contactos_proyectosUpdateWithWhereUniqueWithoutProyectosInput = {
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+    data: Prisma.XOR<Prisma.contactos_proyectosUpdateWithoutProyectosInput, Prisma.contactos_proyectosUncheckedUpdateWithoutProyectosInput>;
+};
+export type contactos_proyectosUpdateManyWithWhereWithoutProyectosInput = {
+    where: Prisma.contactos_proyectosScalarWhereInput;
+    data: Prisma.XOR<Prisma.contactos_proyectosUpdateManyMutationInput, Prisma.contactos_proyectosUncheckedUpdateManyWithoutProyectosInput>;
+};
+export type contactos_proyectosScalarWhereInput = {
+    AND?: Prisma.contactos_proyectosScalarWhereInput | Prisma.contactos_proyectosScalarWhereInput[];
+    OR?: Prisma.contactos_proyectosScalarWhereInput[];
+    NOT?: Prisma.contactos_proyectosScalarWhereInput | Prisma.contactos_proyectosScalarWhereInput[];
+    id?: Prisma.UuidFilter<"contactos_proyectos"> | string;
+    proyecto_id?: Prisma.UuidFilter<"contactos_proyectos"> | string;
+    nombre?: Prisma.StringFilter<"contactos_proyectos"> | string;
+    cargo?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    telefono?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    correo?: Prisma.StringNullableFilter<"contactos_proyectos"> | string | null;
+    creado_fecha?: Prisma.DateTimeFilter<"contactos_proyectos"> | Date | string;
+    modificado_fecha?: Prisma.DateTimeFilter<"contactos_proyectos"> | Date | string;
+};
+export type contactos_proyectosCreateManyProyectosInput = {
+    id?: string;
+    nombre: string;
+    cargo?: string | null;
+    telefono?: string | null;
+    correo?: string | null;
+    creado_fecha?: Date | string;
+    modificado_fecha?: Date | string;
+};
+export type contactos_proyectosUpdateWithoutProyectosInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type contactos_proyectosUncheckedUpdateWithoutProyectosInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type contactos_proyectosUncheckedUpdateManyWithoutProyectosInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    cargo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    correo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type contactos_proyectosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proyecto_id?: boolean;
+    nombre?: boolean;
+    cargo?: boolean;
+    telefono?: boolean;
+    correo?: boolean;
+    creado_fecha?: boolean;
+    modificado_fecha?: boolean;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["contactos_proyectos"]>;
+export type contactos_proyectosSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proyecto_id?: boolean;
+    nombre?: boolean;
+    cargo?: boolean;
+    telefono?: boolean;
+    correo?: boolean;
+    creado_fecha?: boolean;
+    modificado_fecha?: boolean;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["contactos_proyectos"]>;
+export type contactos_proyectosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proyecto_id?: boolean;
+    nombre?: boolean;
+    cargo?: boolean;
+    telefono?: boolean;
+    correo?: boolean;
+    creado_fecha?: boolean;
+    modificado_fecha?: boolean;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["contactos_proyectos"]>;
+export type contactos_proyectosSelectScalar = {
+    id?: boolean;
+    proyecto_id?: boolean;
+    nombre?: boolean;
+    cargo?: boolean;
+    telefono?: boolean;
+    correo?: boolean;
+    creado_fecha?: boolean;
+    modificado_fecha?: boolean;
+};
+export type contactos_proyectosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "proyecto_id" | "nombre" | "cargo" | "telefono" | "correo" | "creado_fecha" | "modificado_fecha", ExtArgs["result"]["contactos_proyectos"]>;
+export type contactos_proyectosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+};
+export type contactos_proyectosIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+};
+export type contactos_proyectosIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+};
+export type $contactos_proyectosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "contactos_proyectos";
+    objects: {
+        proyectos: Prisma.$proyectosPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        proyecto_id: string;
+        nombre: string;
+        cargo: string | null;
+        telefono: string | null;
+        correo: string | null;
+        creado_fecha: Date;
+        modificado_fecha: Date;
+    }, ExtArgs["result"]["contactos_proyectos"]>;
+    composites: {};
+};
+export type contactos_proyectosGetPayload<S extends boolean | null | undefined | contactos_proyectosDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload, S>;
+export type contactos_proyectosCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<contactos_proyectosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: Contactos_proyectosCountAggregateInputType | true;
+};
+export interface contactos_proyectosDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['contactos_proyectos'];
+        meta: {
+            name: 'contactos_proyectos';
+        };
+    };
+    /**
+     * Find zero or one Contactos_proyectos that matches the filter.
+     * @param {contactos_proyectosFindUniqueArgs} args - Arguments to find a Contactos_proyectos
+     * @example
+     * // Get one Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends contactos_proyectosFindUniqueArgs>(args: Prisma.SelectSubset<T, contactos_proyectosFindUniqueArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Contactos_proyectos that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {contactos_proyectosFindUniqueOrThrowArgs} args - Arguments to find a Contactos_proyectos
+     * @example
+     * // Get one Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends contactos_proyectosFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, contactos_proyectosFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Contactos_proyectos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {contactos_proyectosFindFirstArgs} args - Arguments to find a Contactos_proyectos
+     * @example
+     * // Get one Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends contactos_proyectosFindFirstArgs>(args?: Prisma.SelectSubset<T, contactos_proyectosFindFirstArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Contactos_proyectos that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {contactos_proyectosFindFirstOrThrowArgs} args - Arguments to find a Contactos_proyectos
+     * @example
+     * // Get one Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends contactos_proyectosFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, contactos_proyectosFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Contactos_proyectos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {contactos_proyectosFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.findMany()
+     *
+     * // Get first 10 Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const contactos_proyectosWithIdOnly = await prisma.contactos_proyectos.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends contactos_proyectosFindManyArgs>(args?: Prisma.SelectSubset<T, contactos_proyectosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Contactos_proyectos.
+     * @param {contactos_proyectosCreateArgs} args - Arguments to create a Contactos_proyectos.
+     * @example
+     * // Create one Contactos_proyectos
+     * const Contactos_proyectos = await prisma.contactos_proyectos.create({
+     *   data: {
+     *     // ... data to create a Contactos_proyectos
+     *   }
+     * })
+     *
+     */
+    create<T extends contactos_proyectosCreateArgs>(args: Prisma.SelectSubset<T, contactos_proyectosCreateArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Contactos_proyectos.
+     * @param {contactos_proyectosCreateManyArgs} args - Arguments to create many Contactos_proyectos.
+     * @example
+     * // Create many Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends contactos_proyectosCreateManyArgs>(args?: Prisma.SelectSubset<T, contactos_proyectosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Contactos_proyectos and returns the data saved in the database.
+     * @param {contactos_proyectosCreateManyAndReturnArgs} args - Arguments to create many Contactos_proyectos.
+     * @example
+     * // Create many Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Contactos_proyectos and only return the `id`
+     * const contactos_proyectosWithIdOnly = await prisma.contactos_proyectos.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends contactos_proyectosCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, contactos_proyectosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Contactos_proyectos.
+     * @param {contactos_proyectosDeleteArgs} args - Arguments to delete one Contactos_proyectos.
+     * @example
+     * // Delete one Contactos_proyectos
+     * const Contactos_proyectos = await prisma.contactos_proyectos.delete({
+     *   where: {
+     *     // ... filter to delete one Contactos_proyectos
+     *   }
+     * })
+     *
+     */
+    delete<T extends contactos_proyectosDeleteArgs>(args: Prisma.SelectSubset<T, contactos_proyectosDeleteArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Contactos_proyectos.
+     * @param {contactos_proyectosUpdateArgs} args - Arguments to update one Contactos_proyectos.
+     * @example
+     * // Update one Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends contactos_proyectosUpdateArgs>(args: Prisma.SelectSubset<T, contactos_proyectosUpdateArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Contactos_proyectos.
+     * @param {contactos_proyectosDeleteManyArgs} args - Arguments to filter Contactos_proyectos to delete.
+     * @example
+     * // Delete a few Contactos_proyectos
+     * const { count } = await prisma.contactos_proyectos.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends contactos_proyectosDeleteManyArgs>(args?: Prisma.SelectSubset<T, contactos_proyectosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Contactos_proyectos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {contactos_proyectosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends contactos_proyectosUpdateManyArgs>(args: Prisma.SelectSubset<T, contactos_proyectosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Contactos_proyectos and returns the data updated in the database.
+     * @param {contactos_proyectosUpdateManyAndReturnArgs} args - Arguments to update many Contactos_proyectos.
+     * @example
+     * // Update many Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Contactos_proyectos and only return the `id`
+     * const contactos_proyectosWithIdOnly = await prisma.contactos_proyectos.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends contactos_proyectosUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, contactos_proyectosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Contactos_proyectos.
+     * @param {contactos_proyectosUpsertArgs} args - Arguments to update or create a Contactos_proyectos.
+     * @example
+     * // Update or create a Contactos_proyectos
+     * const contactos_proyectos = await prisma.contactos_proyectos.upsert({
+     *   create: {
+     *     // ... data to create a Contactos_proyectos
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Contactos_proyectos we want to update
+     *   }
+     * })
+     */
+    upsert<T extends contactos_proyectosUpsertArgs>(args: Prisma.SelectSubset<T, contactos_proyectosUpsertArgs<ExtArgs>>): Prisma.Prisma__contactos_proyectosClient<runtime.Types.Result.GetResult<Prisma.$contactos_proyectosPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Contactos_proyectos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {contactos_proyectosCountArgs} args - Arguments to filter Contactos_proyectos to count.
+     * @example
+     * // Count the number of Contactos_proyectos
+     * const count = await prisma.contactos_proyectos.count({
+     *   where: {
+     *     // ... the filter for the Contactos_proyectos we want to count
+     *   }
+     * })
+    **/
+    count<T extends contactos_proyectosCountArgs>(args?: Prisma.Subset<T, contactos_proyectosCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], Contactos_proyectosCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Contactos_proyectos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Contactos_proyectosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Contactos_proyectosAggregateArgs>(args: Prisma.Subset<T, Contactos_proyectosAggregateArgs>): Prisma.PrismaPromise<GetContactos_proyectosAggregateType<T>>;
+    /**
+     * Group by Contactos_proyectos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {contactos_proyectosGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends contactos_proyectosGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: contactos_proyectosGroupByArgs['orderBy'];
+    } : {
+        orderBy?: contactos_proyectosGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, contactos_proyectosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetContactos_proyectosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the contactos_proyectos model
+     */
+    readonly fields: contactos_proyectosFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for contactos_proyectos.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__contactos_proyectosClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    proyectos<T extends Prisma.proyectosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.proyectosDefaultArgs<ExtArgs>>): Prisma.Prisma__proyectosClient<runtime.Types.Result.GetResult<Prisma.$proyectosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the contactos_proyectos model
+ */
+export interface contactos_proyectosFieldRefs {
+    readonly id: Prisma.FieldRef<"contactos_proyectos", 'String'>;
+    readonly proyecto_id: Prisma.FieldRef<"contactos_proyectos", 'String'>;
+    readonly nombre: Prisma.FieldRef<"contactos_proyectos", 'String'>;
+    readonly cargo: Prisma.FieldRef<"contactos_proyectos", 'String'>;
+    readonly telefono: Prisma.FieldRef<"contactos_proyectos", 'String'>;
+    readonly correo: Prisma.FieldRef<"contactos_proyectos", 'String'>;
+    readonly creado_fecha: Prisma.FieldRef<"contactos_proyectos", 'DateTime'>;
+    readonly modificado_fecha: Prisma.FieldRef<"contactos_proyectos", 'DateTime'>;
+}
+/**
+ * contactos_proyectos findUnique
+ */
+export type contactos_proyectosFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * Filter, which contactos_proyectos to fetch.
+     */
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+};
+/**
+ * contactos_proyectos findUniqueOrThrow
+ */
+export type contactos_proyectosFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * Filter, which contactos_proyectos to fetch.
+     */
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+};
+/**
+ * contactos_proyectos findFirst
+ */
+export type contactos_proyectosFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * Filter, which contactos_proyectos to fetch.
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of contactos_proyectos to fetch.
+     */
+    orderBy?: Prisma.contactos_proyectosOrderByWithRelationInput | Prisma.contactos_proyectosOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for contactos_proyectos.
+     */
+    cursor?: Prisma.contactos_proyectosWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` contactos_proyectos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` contactos_proyectos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of contactos_proyectos.
+     */
+    distinct?: Prisma.Contactos_proyectosScalarFieldEnum | Prisma.Contactos_proyectosScalarFieldEnum[];
+};
+/**
+ * contactos_proyectos findFirstOrThrow
+ */
+export type contactos_proyectosFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * Filter, which contactos_proyectos to fetch.
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of contactos_proyectos to fetch.
+     */
+    orderBy?: Prisma.contactos_proyectosOrderByWithRelationInput | Prisma.contactos_proyectosOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for contactos_proyectos.
+     */
+    cursor?: Prisma.contactos_proyectosWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` contactos_proyectos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` contactos_proyectos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of contactos_proyectos.
+     */
+    distinct?: Prisma.Contactos_proyectosScalarFieldEnum | Prisma.Contactos_proyectosScalarFieldEnum[];
+};
+/**
+ * contactos_proyectos findMany
+ */
+export type contactos_proyectosFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * Filter, which contactos_proyectos to fetch.
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of contactos_proyectos to fetch.
+     */
+    orderBy?: Prisma.contactos_proyectosOrderByWithRelationInput | Prisma.contactos_proyectosOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing contactos_proyectos.
+     */
+    cursor?: Prisma.contactos_proyectosWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` contactos_proyectos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` contactos_proyectos.
+     */
+    skip?: number;
+    distinct?: Prisma.Contactos_proyectosScalarFieldEnum | Prisma.Contactos_proyectosScalarFieldEnum[];
+};
+/**
+ * contactos_proyectos create
+ */
+export type contactos_proyectosCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a contactos_proyectos.
+     */
+    data: Prisma.XOR<Prisma.contactos_proyectosCreateInput, Prisma.contactos_proyectosUncheckedCreateInput>;
+};
+/**
+ * contactos_proyectos createMany
+ */
+export type contactos_proyectosCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many contactos_proyectos.
+     */
+    data: Prisma.contactos_proyectosCreateManyInput | Prisma.contactos_proyectosCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * contactos_proyectos createManyAndReturn
+ */
+export type contactos_proyectosCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * The data used to create many contactos_proyectos.
+     */
+    data: Prisma.contactos_proyectosCreateManyInput | Prisma.contactos_proyectosCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * contactos_proyectos update
+ */
+export type contactos_proyectosUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a contactos_proyectos.
+     */
+    data: Prisma.XOR<Prisma.contactos_proyectosUpdateInput, Prisma.contactos_proyectosUncheckedUpdateInput>;
+    /**
+     * Choose, which contactos_proyectos to update.
+     */
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+};
+/**
+ * contactos_proyectos updateMany
+ */
+export type contactos_proyectosUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update contactos_proyectos.
+     */
+    data: Prisma.XOR<Prisma.contactos_proyectosUpdateManyMutationInput, Prisma.contactos_proyectosUncheckedUpdateManyInput>;
+    /**
+     * Filter which contactos_proyectos to update
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * Limit how many contactos_proyectos to update.
+     */
+    limit?: number;
+};
+/**
+ * contactos_proyectos updateManyAndReturn
+ */
+export type contactos_proyectosUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * The data used to update contactos_proyectos.
+     */
+    data: Prisma.XOR<Prisma.contactos_proyectosUpdateManyMutationInput, Prisma.contactos_proyectosUncheckedUpdateManyInput>;
+    /**
+     * Filter which contactos_proyectos to update
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * Limit how many contactos_proyectos to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * contactos_proyectos upsert
+ */
+export type contactos_proyectosUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the contactos_proyectos to update in case it exists.
+     */
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+    /**
+     * In case the contactos_proyectos found by the `where` argument doesn't exist, create a new contactos_proyectos with this data.
+     */
+    create: Prisma.XOR<Prisma.contactos_proyectosCreateInput, Prisma.contactos_proyectosUncheckedCreateInput>;
+    /**
+     * In case the contactos_proyectos was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.contactos_proyectosUpdateInput, Prisma.contactos_proyectosUncheckedUpdateInput>;
+};
+/**
+ * contactos_proyectos delete
+ */
+export type contactos_proyectosDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+    /**
+     * Filter which contactos_proyectos to delete.
+     */
+    where: Prisma.contactos_proyectosWhereUniqueInput;
+};
+/**
+ * contactos_proyectos deleteMany
+ */
+export type contactos_proyectosDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which contactos_proyectos to delete
+     */
+    where?: Prisma.contactos_proyectosWhereInput;
+    /**
+     * Limit how many contactos_proyectos to delete.
+     */
+    limit?: number;
+};
+/**
+ * contactos_proyectos without action
+ */
+export type contactos_proyectosDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the contactos_proyectos
+     */
+    select?: Prisma.contactos_proyectosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the contactos_proyectos
+     */
+    omit?: Prisma.contactos_proyectosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.contactos_proyectosInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=contactos_proyectos.d.ts.map

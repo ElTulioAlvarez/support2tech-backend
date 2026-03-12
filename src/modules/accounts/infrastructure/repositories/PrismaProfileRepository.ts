@@ -1,6 +1,6 @@
-import type { PrismaClient } from "../../../../shared/infrastructure/db/generated/prisma/client.js";
-import type { Profile } from "../../domain/entities/Profile.js";
 import type { ProfileRepository } from "../../domain/repositories/ProfileRepository.js";
+import type { Profile } from "../../domain/entities/Profile.js";
+import type { PrismaClient } from "../../../../shared/infrastructure/db/generated/prisma/client.js";
 
 export class PrismaProfileRepository implements ProfileRepository {
   constructor(private readonly db: PrismaClient) {}

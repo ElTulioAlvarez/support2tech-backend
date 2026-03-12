@@ -1,0 +1,1 @@
+{"version":3,"file":"GetRoleByUserIdUseCase.d.ts","sourceRoot":"","sources":["../../../../../src/modules/accounts/application/use-cases/GetRoleByUserIdUseCase.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,gDAAgD,CAAC;AAExF,qBAAa,sBAAsB;IACrB,OAAO,CAAC,QAAQ,CAAC,iBAAiB;gBAAjB,iBAAiB,EAAE,iBAAiB;IAE3D,OAAO,CAAC,MAAM,EAAE,MAAM;CAI7B"}

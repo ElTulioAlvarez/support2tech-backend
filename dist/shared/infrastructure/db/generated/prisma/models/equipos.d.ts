@@ -1,0 +1,1644 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model equipos
+ *
+ */
+export type equiposModel = runtime.Types.Result.DefaultSelection<Prisma.$equiposPayload>;
+export type AggregateEquipos = {
+    _count: EquiposCountAggregateOutputType | null;
+    _min: EquiposMinAggregateOutputType | null;
+    _max: EquiposMaxAggregateOutputType | null;
+};
+export type EquiposMinAggregateOutputType = {
+    id: string | null;
+    proyecto_id: string | null;
+    tipo: string | null;
+    nombre: string | null;
+    modelo: string | null;
+    ubicacion: string | null;
+    numero_serie: string | null;
+    ip: string | null;
+    estado: string | null;
+    notas: string | null;
+    creado_por: string | null;
+    creado_fecha: Date | null;
+    modificado_por: string | null;
+    modificado_fecha: Date | null;
+};
+export type EquiposMaxAggregateOutputType = {
+    id: string | null;
+    proyecto_id: string | null;
+    tipo: string | null;
+    nombre: string | null;
+    modelo: string | null;
+    ubicacion: string | null;
+    numero_serie: string | null;
+    ip: string | null;
+    estado: string | null;
+    notas: string | null;
+    creado_por: string | null;
+    creado_fecha: Date | null;
+    modificado_por: string | null;
+    modificado_fecha: Date | null;
+};
+export type EquiposCountAggregateOutputType = {
+    id: number;
+    proyecto_id: number;
+    tipo: number;
+    nombre: number;
+    modelo: number;
+    ubicacion: number;
+    numero_serie: number;
+    ip: number;
+    estado: number;
+    notas: number;
+    creado_por: number;
+    creado_fecha: number;
+    modificado_por: number;
+    modificado_fecha: number;
+    _all: number;
+};
+export type EquiposMinAggregateInputType = {
+    id?: true;
+    proyecto_id?: true;
+    tipo?: true;
+    nombre?: true;
+    modelo?: true;
+    ubicacion?: true;
+    numero_serie?: true;
+    ip?: true;
+    estado?: true;
+    notas?: true;
+    creado_por?: true;
+    creado_fecha?: true;
+    modificado_por?: true;
+    modificado_fecha?: true;
+};
+export type EquiposMaxAggregateInputType = {
+    id?: true;
+    proyecto_id?: true;
+    tipo?: true;
+    nombre?: true;
+    modelo?: true;
+    ubicacion?: true;
+    numero_serie?: true;
+    ip?: true;
+    estado?: true;
+    notas?: true;
+    creado_por?: true;
+    creado_fecha?: true;
+    modificado_por?: true;
+    modificado_fecha?: true;
+};
+export type EquiposCountAggregateInputType = {
+    id?: true;
+    proyecto_id?: true;
+    tipo?: true;
+    nombre?: true;
+    modelo?: true;
+    ubicacion?: true;
+    numero_serie?: true;
+    ip?: true;
+    estado?: true;
+    notas?: true;
+    creado_por?: true;
+    creado_fecha?: true;
+    modificado_por?: true;
+    modificado_fecha?: true;
+    _all?: true;
+};
+export type EquiposAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which equipos to aggregate.
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of equipos to fetch.
+     */
+    orderBy?: Prisma.equiposOrderByWithRelationInput | Prisma.equiposOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.equiposWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` equipos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` equipos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned equipos
+    **/
+    _count?: true | EquiposCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: EquiposMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: EquiposMaxAggregateInputType;
+};
+export type GetEquiposAggregateType<T extends EquiposAggregateArgs> = {
+    [P in keyof T & keyof AggregateEquipos]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateEquipos[P]> : Prisma.GetScalarType<T[P], AggregateEquipos[P]>;
+};
+export type equiposGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.equiposWhereInput;
+    orderBy?: Prisma.equiposOrderByWithAggregationInput | Prisma.equiposOrderByWithAggregationInput[];
+    by: Prisma.EquiposScalarFieldEnum[] | Prisma.EquiposScalarFieldEnum;
+    having?: Prisma.equiposScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: EquiposCountAggregateInputType | true;
+    _min?: EquiposMinAggregateInputType;
+    _max?: EquiposMaxAggregateInputType;
+};
+export type EquiposGroupByOutputType = {
+    id: string;
+    proyecto_id: string;
+    tipo: string;
+    nombre: string;
+    modelo: string | null;
+    ubicacion: string | null;
+    numero_serie: string | null;
+    ip: string | null;
+    estado: string | null;
+    notas: string | null;
+    creado_por: string | null;
+    creado_fecha: Date;
+    modificado_por: string | null;
+    modificado_fecha: Date;
+    _count: EquiposCountAggregateOutputType | null;
+    _min: EquiposMinAggregateOutputType | null;
+    _max: EquiposMaxAggregateOutputType | null;
+};
+type GetEquiposGroupByPayload<T extends equiposGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<EquiposGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof EquiposGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], EquiposGroupByOutputType[P]> : Prisma.GetScalarType<T[P], EquiposGroupByOutputType[P]>;
+}>>;
+export type equiposWhereInput = {
+    AND?: Prisma.equiposWhereInput | Prisma.equiposWhereInput[];
+    OR?: Prisma.equiposWhereInput[];
+    NOT?: Prisma.equiposWhereInput | Prisma.equiposWhereInput[];
+    id?: Prisma.UuidFilter<"equipos"> | string;
+    proyecto_id?: Prisma.UuidFilter<"equipos"> | string;
+    tipo?: Prisma.StringFilter<"equipos"> | string;
+    nombre?: Prisma.StringFilter<"equipos"> | string;
+    modelo?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    ubicacion?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    numero_serie?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    ip?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    estado?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    notas?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    creado_por?: Prisma.UuidNullableFilter<"equipos"> | string | null;
+    creado_fecha?: Prisma.DateTimeFilter<"equipos"> | Date | string;
+    modificado_por?: Prisma.UuidNullableFilter<"equipos"> | string | null;
+    modificado_fecha?: Prisma.DateTimeFilter<"equipos"> | Date | string;
+    componentes_equipos?: Prisma.Componentes_equiposListRelationFilter;
+    proyectos?: Prisma.XOR<Prisma.ProyectosScalarRelationFilter, Prisma.proyectosWhereInput>;
+};
+export type equiposOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    modelo?: Prisma.SortOrderInput | Prisma.SortOrder;
+    ubicacion?: Prisma.SortOrderInput | Prisma.SortOrder;
+    numero_serie?: Prisma.SortOrderInput | Prisma.SortOrder;
+    ip?: Prisma.SortOrderInput | Prisma.SortOrder;
+    estado?: Prisma.SortOrderInput | Prisma.SortOrder;
+    notas?: Prisma.SortOrderInput | Prisma.SortOrder;
+    creado_por?: Prisma.SortOrderInput | Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_por?: Prisma.SortOrderInput | Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+    componentes_equipos?: Prisma.componentes_equiposOrderByRelationAggregateInput;
+    proyectos?: Prisma.proyectosOrderByWithRelationInput;
+};
+export type equiposWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    AND?: Prisma.equiposWhereInput | Prisma.equiposWhereInput[];
+    OR?: Prisma.equiposWhereInput[];
+    NOT?: Prisma.equiposWhereInput | Prisma.equiposWhereInput[];
+    proyecto_id?: Prisma.UuidFilter<"equipos"> | string;
+    tipo?: Prisma.StringFilter<"equipos"> | string;
+    nombre?: Prisma.StringFilter<"equipos"> | string;
+    modelo?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    ubicacion?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    numero_serie?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    ip?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    estado?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    notas?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    creado_por?: Prisma.UuidNullableFilter<"equipos"> | string | null;
+    creado_fecha?: Prisma.DateTimeFilter<"equipos"> | Date | string;
+    modificado_por?: Prisma.UuidNullableFilter<"equipos"> | string | null;
+    modificado_fecha?: Prisma.DateTimeFilter<"equipos"> | Date | string;
+    componentes_equipos?: Prisma.Componentes_equiposListRelationFilter;
+    proyectos?: Prisma.XOR<Prisma.ProyectosScalarRelationFilter, Prisma.proyectosWhereInput>;
+}, "id">;
+export type equiposOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    modelo?: Prisma.SortOrderInput | Prisma.SortOrder;
+    ubicacion?: Prisma.SortOrderInput | Prisma.SortOrder;
+    numero_serie?: Prisma.SortOrderInput | Prisma.SortOrder;
+    ip?: Prisma.SortOrderInput | Prisma.SortOrder;
+    estado?: Prisma.SortOrderInput | Prisma.SortOrder;
+    notas?: Prisma.SortOrderInput | Prisma.SortOrder;
+    creado_por?: Prisma.SortOrderInput | Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_por?: Prisma.SortOrderInput | Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+    _count?: Prisma.equiposCountOrderByAggregateInput;
+    _max?: Prisma.equiposMaxOrderByAggregateInput;
+    _min?: Prisma.equiposMinOrderByAggregateInput;
+};
+export type equiposScalarWhereWithAggregatesInput = {
+    AND?: Prisma.equiposScalarWhereWithAggregatesInput | Prisma.equiposScalarWhereWithAggregatesInput[];
+    OR?: Prisma.equiposScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.equiposScalarWhereWithAggregatesInput | Prisma.equiposScalarWhereWithAggregatesInput[];
+    id?: Prisma.UuidWithAggregatesFilter<"equipos"> | string;
+    proyecto_id?: Prisma.UuidWithAggregatesFilter<"equipos"> | string;
+    tipo?: Prisma.StringWithAggregatesFilter<"equipos"> | string;
+    nombre?: Prisma.StringWithAggregatesFilter<"equipos"> | string;
+    modelo?: Prisma.StringNullableWithAggregatesFilter<"equipos"> | string | null;
+    ubicacion?: Prisma.StringNullableWithAggregatesFilter<"equipos"> | string | null;
+    numero_serie?: Prisma.StringNullableWithAggregatesFilter<"equipos"> | string | null;
+    ip?: Prisma.StringNullableWithAggregatesFilter<"equipos"> | string | null;
+    estado?: Prisma.StringNullableWithAggregatesFilter<"equipos"> | string | null;
+    notas?: Prisma.StringNullableWithAggregatesFilter<"equipos"> | string | null;
+    creado_por?: Prisma.UuidNullableWithAggregatesFilter<"equipos"> | string | null;
+    creado_fecha?: Prisma.DateTimeWithAggregatesFilter<"equipos"> | Date | string;
+    modificado_por?: Prisma.UuidNullableWithAggregatesFilter<"equipos"> | string | null;
+    modificado_fecha?: Prisma.DateTimeWithAggregatesFilter<"equipos"> | Date | string;
+};
+export type equiposCreateInput = {
+    id?: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+    componentes_equipos?: Prisma.componentes_equiposCreateNestedManyWithoutEquiposInput;
+    proyectos: Prisma.proyectosCreateNestedOneWithoutEquiposInput;
+};
+export type equiposUncheckedCreateInput = {
+    id?: string;
+    proyecto_id: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+    componentes_equipos?: Prisma.componentes_equiposUncheckedCreateNestedManyWithoutEquiposInput;
+};
+export type equiposUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    componentes_equipos?: Prisma.componentes_equiposUpdateManyWithoutEquiposNestedInput;
+    proyectos?: Prisma.proyectosUpdateOneRequiredWithoutEquiposNestedInput;
+};
+export type equiposUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proyecto_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    componentes_equipos?: Prisma.componentes_equiposUncheckedUpdateManyWithoutEquiposNestedInput;
+};
+export type equiposCreateManyInput = {
+    id?: string;
+    proyecto_id: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+};
+export type equiposUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type equiposUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proyecto_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EquiposScalarRelationFilter = {
+    is?: Prisma.equiposWhereInput;
+    isNot?: Prisma.equiposWhereInput;
+};
+export type equiposCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    modelo?: Prisma.SortOrder;
+    ubicacion?: Prisma.SortOrder;
+    numero_serie?: Prisma.SortOrder;
+    ip?: Prisma.SortOrder;
+    estado?: Prisma.SortOrder;
+    notas?: Prisma.SortOrder;
+    creado_por?: Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_por?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+};
+export type equiposMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    modelo?: Prisma.SortOrder;
+    ubicacion?: Prisma.SortOrder;
+    numero_serie?: Prisma.SortOrder;
+    ip?: Prisma.SortOrder;
+    estado?: Prisma.SortOrder;
+    notas?: Prisma.SortOrder;
+    creado_por?: Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_por?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+};
+export type equiposMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proyecto_id?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    nombre?: Prisma.SortOrder;
+    modelo?: Prisma.SortOrder;
+    ubicacion?: Prisma.SortOrder;
+    numero_serie?: Prisma.SortOrder;
+    ip?: Prisma.SortOrder;
+    estado?: Prisma.SortOrder;
+    notas?: Prisma.SortOrder;
+    creado_por?: Prisma.SortOrder;
+    creado_fecha?: Prisma.SortOrder;
+    modificado_por?: Prisma.SortOrder;
+    modificado_fecha?: Prisma.SortOrder;
+};
+export type EquiposListRelationFilter = {
+    every?: Prisma.equiposWhereInput;
+    some?: Prisma.equiposWhereInput;
+    none?: Prisma.equiposWhereInput;
+};
+export type equiposOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type equiposCreateNestedOneWithoutComponentes_equiposInput = {
+    create?: Prisma.XOR<Prisma.equiposCreateWithoutComponentes_equiposInput, Prisma.equiposUncheckedCreateWithoutComponentes_equiposInput>;
+    connectOrCreate?: Prisma.equiposCreateOrConnectWithoutComponentes_equiposInput;
+    connect?: Prisma.equiposWhereUniqueInput;
+};
+export type equiposUpdateOneRequiredWithoutComponentes_equiposNestedInput = {
+    create?: Prisma.XOR<Prisma.equiposCreateWithoutComponentes_equiposInput, Prisma.equiposUncheckedCreateWithoutComponentes_equiposInput>;
+    connectOrCreate?: Prisma.equiposCreateOrConnectWithoutComponentes_equiposInput;
+    upsert?: Prisma.equiposUpsertWithoutComponentes_equiposInput;
+    connect?: Prisma.equiposWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.equiposUpdateToOneWithWhereWithoutComponentes_equiposInput, Prisma.equiposUpdateWithoutComponentes_equiposInput>, Prisma.equiposUncheckedUpdateWithoutComponentes_equiposInput>;
+};
+export type equiposCreateNestedManyWithoutProyectosInput = {
+    create?: Prisma.XOR<Prisma.equiposCreateWithoutProyectosInput, Prisma.equiposUncheckedCreateWithoutProyectosInput> | Prisma.equiposCreateWithoutProyectosInput[] | Prisma.equiposUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.equiposCreateOrConnectWithoutProyectosInput | Prisma.equiposCreateOrConnectWithoutProyectosInput[];
+    createMany?: Prisma.equiposCreateManyProyectosInputEnvelope;
+    connect?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+};
+export type equiposUncheckedCreateNestedManyWithoutProyectosInput = {
+    create?: Prisma.XOR<Prisma.equiposCreateWithoutProyectosInput, Prisma.equiposUncheckedCreateWithoutProyectosInput> | Prisma.equiposCreateWithoutProyectosInput[] | Prisma.equiposUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.equiposCreateOrConnectWithoutProyectosInput | Prisma.equiposCreateOrConnectWithoutProyectosInput[];
+    createMany?: Prisma.equiposCreateManyProyectosInputEnvelope;
+    connect?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+};
+export type equiposUpdateManyWithoutProyectosNestedInput = {
+    create?: Prisma.XOR<Prisma.equiposCreateWithoutProyectosInput, Prisma.equiposUncheckedCreateWithoutProyectosInput> | Prisma.equiposCreateWithoutProyectosInput[] | Prisma.equiposUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.equiposCreateOrConnectWithoutProyectosInput | Prisma.equiposCreateOrConnectWithoutProyectosInput[];
+    upsert?: Prisma.equiposUpsertWithWhereUniqueWithoutProyectosInput | Prisma.equiposUpsertWithWhereUniqueWithoutProyectosInput[];
+    createMany?: Prisma.equiposCreateManyProyectosInputEnvelope;
+    set?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    disconnect?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    delete?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    connect?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    update?: Prisma.equiposUpdateWithWhereUniqueWithoutProyectosInput | Prisma.equiposUpdateWithWhereUniqueWithoutProyectosInput[];
+    updateMany?: Prisma.equiposUpdateManyWithWhereWithoutProyectosInput | Prisma.equiposUpdateManyWithWhereWithoutProyectosInput[];
+    deleteMany?: Prisma.equiposScalarWhereInput | Prisma.equiposScalarWhereInput[];
+};
+export type equiposUncheckedUpdateManyWithoutProyectosNestedInput = {
+    create?: Prisma.XOR<Prisma.equiposCreateWithoutProyectosInput, Prisma.equiposUncheckedCreateWithoutProyectosInput> | Prisma.equiposCreateWithoutProyectosInput[] | Prisma.equiposUncheckedCreateWithoutProyectosInput[];
+    connectOrCreate?: Prisma.equiposCreateOrConnectWithoutProyectosInput | Prisma.equiposCreateOrConnectWithoutProyectosInput[];
+    upsert?: Prisma.equiposUpsertWithWhereUniqueWithoutProyectosInput | Prisma.equiposUpsertWithWhereUniqueWithoutProyectosInput[];
+    createMany?: Prisma.equiposCreateManyProyectosInputEnvelope;
+    set?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    disconnect?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    delete?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    connect?: Prisma.equiposWhereUniqueInput | Prisma.equiposWhereUniqueInput[];
+    update?: Prisma.equiposUpdateWithWhereUniqueWithoutProyectosInput | Prisma.equiposUpdateWithWhereUniqueWithoutProyectosInput[];
+    updateMany?: Prisma.equiposUpdateManyWithWhereWithoutProyectosInput | Prisma.equiposUpdateManyWithWhereWithoutProyectosInput[];
+    deleteMany?: Prisma.equiposScalarWhereInput | Prisma.equiposScalarWhereInput[];
+};
+export type equiposCreateWithoutComponentes_equiposInput = {
+    id?: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+    proyectos: Prisma.proyectosCreateNestedOneWithoutEquiposInput;
+};
+export type equiposUncheckedCreateWithoutComponentes_equiposInput = {
+    id?: string;
+    proyecto_id: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+};
+export type equiposCreateOrConnectWithoutComponentes_equiposInput = {
+    where: Prisma.equiposWhereUniqueInput;
+    create: Prisma.XOR<Prisma.equiposCreateWithoutComponentes_equiposInput, Prisma.equiposUncheckedCreateWithoutComponentes_equiposInput>;
+};
+export type equiposUpsertWithoutComponentes_equiposInput = {
+    update: Prisma.XOR<Prisma.equiposUpdateWithoutComponentes_equiposInput, Prisma.equiposUncheckedUpdateWithoutComponentes_equiposInput>;
+    create: Prisma.XOR<Prisma.equiposCreateWithoutComponentes_equiposInput, Prisma.equiposUncheckedCreateWithoutComponentes_equiposInput>;
+    where?: Prisma.equiposWhereInput;
+};
+export type equiposUpdateToOneWithWhereWithoutComponentes_equiposInput = {
+    where?: Prisma.equiposWhereInput;
+    data: Prisma.XOR<Prisma.equiposUpdateWithoutComponentes_equiposInput, Prisma.equiposUncheckedUpdateWithoutComponentes_equiposInput>;
+};
+export type equiposUpdateWithoutComponentes_equiposInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    proyectos?: Prisma.proyectosUpdateOneRequiredWithoutEquiposNestedInput;
+};
+export type equiposUncheckedUpdateWithoutComponentes_equiposInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proyecto_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type equiposCreateWithoutProyectosInput = {
+    id?: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+    componentes_equipos?: Prisma.componentes_equiposCreateNestedManyWithoutEquiposInput;
+};
+export type equiposUncheckedCreateWithoutProyectosInput = {
+    id?: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+    componentes_equipos?: Prisma.componentes_equiposUncheckedCreateNestedManyWithoutEquiposInput;
+};
+export type equiposCreateOrConnectWithoutProyectosInput = {
+    where: Prisma.equiposWhereUniqueInput;
+    create: Prisma.XOR<Prisma.equiposCreateWithoutProyectosInput, Prisma.equiposUncheckedCreateWithoutProyectosInput>;
+};
+export type equiposCreateManyProyectosInputEnvelope = {
+    data: Prisma.equiposCreateManyProyectosInput | Prisma.equiposCreateManyProyectosInput[];
+    skipDuplicates?: boolean;
+};
+export type equiposUpsertWithWhereUniqueWithoutProyectosInput = {
+    where: Prisma.equiposWhereUniqueInput;
+    update: Prisma.XOR<Prisma.equiposUpdateWithoutProyectosInput, Prisma.equiposUncheckedUpdateWithoutProyectosInput>;
+    create: Prisma.XOR<Prisma.equiposCreateWithoutProyectosInput, Prisma.equiposUncheckedCreateWithoutProyectosInput>;
+};
+export type equiposUpdateWithWhereUniqueWithoutProyectosInput = {
+    where: Prisma.equiposWhereUniqueInput;
+    data: Prisma.XOR<Prisma.equiposUpdateWithoutProyectosInput, Prisma.equiposUncheckedUpdateWithoutProyectosInput>;
+};
+export type equiposUpdateManyWithWhereWithoutProyectosInput = {
+    where: Prisma.equiposScalarWhereInput;
+    data: Prisma.XOR<Prisma.equiposUpdateManyMutationInput, Prisma.equiposUncheckedUpdateManyWithoutProyectosInput>;
+};
+export type equiposScalarWhereInput = {
+    AND?: Prisma.equiposScalarWhereInput | Prisma.equiposScalarWhereInput[];
+    OR?: Prisma.equiposScalarWhereInput[];
+    NOT?: Prisma.equiposScalarWhereInput | Prisma.equiposScalarWhereInput[];
+    id?: Prisma.UuidFilter<"equipos"> | string;
+    proyecto_id?: Prisma.UuidFilter<"equipos"> | string;
+    tipo?: Prisma.StringFilter<"equipos"> | string;
+    nombre?: Prisma.StringFilter<"equipos"> | string;
+    modelo?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    ubicacion?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    numero_serie?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    ip?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    estado?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    notas?: Prisma.StringNullableFilter<"equipos"> | string | null;
+    creado_por?: Prisma.UuidNullableFilter<"equipos"> | string | null;
+    creado_fecha?: Prisma.DateTimeFilter<"equipos"> | Date | string;
+    modificado_por?: Prisma.UuidNullableFilter<"equipos"> | string | null;
+    modificado_fecha?: Prisma.DateTimeFilter<"equipos"> | Date | string;
+};
+export type equiposCreateManyProyectosInput = {
+    id?: string;
+    tipo: string;
+    nombre: string;
+    modelo?: string | null;
+    ubicacion?: string | null;
+    numero_serie?: string | null;
+    ip?: string | null;
+    estado?: string | null;
+    notas?: string | null;
+    creado_por?: string | null;
+    creado_fecha?: Date | string;
+    modificado_por?: string | null;
+    modificado_fecha?: Date | string;
+};
+export type equiposUpdateWithoutProyectosInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    componentes_equipos?: Prisma.componentes_equiposUpdateManyWithoutEquiposNestedInput;
+};
+export type equiposUncheckedUpdateWithoutProyectosInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    componentes_equipos?: Prisma.componentes_equiposUncheckedUpdateManyWithoutEquiposNestedInput;
+};
+export type equiposUncheckedUpdateManyWithoutProyectosInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tipo?: Prisma.StringFieldUpdateOperationsInput | string;
+    nombre?: Prisma.StringFieldUpdateOperationsInput | string;
+    modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    numero_serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    notas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    creado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    modificado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    modificado_fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+/**
+ * Count Type EquiposCountOutputType
+ */
+export type EquiposCountOutputType = {
+    componentes_equipos: number;
+};
+export type EquiposCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    componentes_equipos?: boolean | EquiposCountOutputTypeCountComponentes_equiposArgs;
+};
+/**
+ * EquiposCountOutputType without action
+ */
+export type EquiposCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EquiposCountOutputType
+     */
+    select?: Prisma.EquiposCountOutputTypeSelect<ExtArgs> | null;
+};
+/**
+ * EquiposCountOutputType without action
+ */
+export type EquiposCountOutputTypeCountComponentes_equiposArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.componentes_equiposWhereInput;
+};
+export type equiposSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proyecto_id?: boolean;
+    tipo?: boolean;
+    nombre?: boolean;
+    modelo?: boolean;
+    ubicacion?: boolean;
+    numero_serie?: boolean;
+    ip?: boolean;
+    estado?: boolean;
+    notas?: boolean;
+    creado_por?: boolean;
+    creado_fecha?: boolean;
+    modificado_por?: boolean;
+    modificado_fecha?: boolean;
+    componentes_equipos?: boolean | Prisma.equipos$componentes_equiposArgs<ExtArgs>;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+    _count?: boolean | Prisma.EquiposCountOutputTypeDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["equipos"]>;
+export type equiposSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proyecto_id?: boolean;
+    tipo?: boolean;
+    nombre?: boolean;
+    modelo?: boolean;
+    ubicacion?: boolean;
+    numero_serie?: boolean;
+    ip?: boolean;
+    estado?: boolean;
+    notas?: boolean;
+    creado_por?: boolean;
+    creado_fecha?: boolean;
+    modificado_por?: boolean;
+    modificado_fecha?: boolean;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["equipos"]>;
+export type equiposSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proyecto_id?: boolean;
+    tipo?: boolean;
+    nombre?: boolean;
+    modelo?: boolean;
+    ubicacion?: boolean;
+    numero_serie?: boolean;
+    ip?: boolean;
+    estado?: boolean;
+    notas?: boolean;
+    creado_por?: boolean;
+    creado_fecha?: boolean;
+    modificado_por?: boolean;
+    modificado_fecha?: boolean;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["equipos"]>;
+export type equiposSelectScalar = {
+    id?: boolean;
+    proyecto_id?: boolean;
+    tipo?: boolean;
+    nombre?: boolean;
+    modelo?: boolean;
+    ubicacion?: boolean;
+    numero_serie?: boolean;
+    ip?: boolean;
+    estado?: boolean;
+    notas?: boolean;
+    creado_por?: boolean;
+    creado_fecha?: boolean;
+    modificado_por?: boolean;
+    modificado_fecha?: boolean;
+};
+export type equiposOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "proyecto_id" | "tipo" | "nombre" | "modelo" | "ubicacion" | "numero_serie" | "ip" | "estado" | "notas" | "creado_por" | "creado_fecha" | "modificado_por" | "modificado_fecha", ExtArgs["result"]["equipos"]>;
+export type equiposInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    componentes_equipos?: boolean | Prisma.equipos$componentes_equiposArgs<ExtArgs>;
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+    _count?: boolean | Prisma.EquiposCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type equiposIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+};
+export type equiposIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    proyectos?: boolean | Prisma.proyectosDefaultArgs<ExtArgs>;
+};
+export type $equiposPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "equipos";
+    objects: {
+        componentes_equipos: Prisma.$componentes_equiposPayload<ExtArgs>[];
+        proyectos: Prisma.$proyectosPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        proyecto_id: string;
+        tipo: string;
+        nombre: string;
+        modelo: string | null;
+        ubicacion: string | null;
+        numero_serie: string | null;
+        ip: string | null;
+        estado: string | null;
+        notas: string | null;
+        creado_por: string | null;
+        creado_fecha: Date;
+        modificado_por: string | null;
+        modificado_fecha: Date;
+    }, ExtArgs["result"]["equipos"]>;
+    composites: {};
+};
+export type equiposGetPayload<S extends boolean | null | undefined | equiposDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$equiposPayload, S>;
+export type equiposCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<equiposFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: EquiposCountAggregateInputType | true;
+};
+export interface equiposDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['equipos'];
+        meta: {
+            name: 'equipos';
+        };
+    };
+    /**
+     * Find zero or one Equipos that matches the filter.
+     * @param {equiposFindUniqueArgs} args - Arguments to find a Equipos
+     * @example
+     * // Get one Equipos
+     * const equipos = await prisma.equipos.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends equiposFindUniqueArgs>(args: Prisma.SelectSubset<T, equiposFindUniqueArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Equipos that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {equiposFindUniqueOrThrowArgs} args - Arguments to find a Equipos
+     * @example
+     * // Get one Equipos
+     * const equipos = await prisma.equipos.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends equiposFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, equiposFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Equipos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {equiposFindFirstArgs} args - Arguments to find a Equipos
+     * @example
+     * // Get one Equipos
+     * const equipos = await prisma.equipos.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends equiposFindFirstArgs>(args?: Prisma.SelectSubset<T, equiposFindFirstArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Equipos that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {equiposFindFirstOrThrowArgs} args - Arguments to find a Equipos
+     * @example
+     * // Get one Equipos
+     * const equipos = await prisma.equipos.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends equiposFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, equiposFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Equipos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {equiposFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Equipos
+     * const equipos = await prisma.equipos.findMany()
+     *
+     * // Get first 10 Equipos
+     * const equipos = await prisma.equipos.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const equiposWithIdOnly = await prisma.equipos.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends equiposFindManyArgs>(args?: Prisma.SelectSubset<T, equiposFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Equipos.
+     * @param {equiposCreateArgs} args - Arguments to create a Equipos.
+     * @example
+     * // Create one Equipos
+     * const Equipos = await prisma.equipos.create({
+     *   data: {
+     *     // ... data to create a Equipos
+     *   }
+     * })
+     *
+     */
+    create<T extends equiposCreateArgs>(args: Prisma.SelectSubset<T, equiposCreateArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Equipos.
+     * @param {equiposCreateManyArgs} args - Arguments to create many Equipos.
+     * @example
+     * // Create many Equipos
+     * const equipos = await prisma.equipos.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends equiposCreateManyArgs>(args?: Prisma.SelectSubset<T, equiposCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Equipos and returns the data saved in the database.
+     * @param {equiposCreateManyAndReturnArgs} args - Arguments to create many Equipos.
+     * @example
+     * // Create many Equipos
+     * const equipos = await prisma.equipos.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Equipos and only return the `id`
+     * const equiposWithIdOnly = await prisma.equipos.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends equiposCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, equiposCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Equipos.
+     * @param {equiposDeleteArgs} args - Arguments to delete one Equipos.
+     * @example
+     * // Delete one Equipos
+     * const Equipos = await prisma.equipos.delete({
+     *   where: {
+     *     // ... filter to delete one Equipos
+     *   }
+     * })
+     *
+     */
+    delete<T extends equiposDeleteArgs>(args: Prisma.SelectSubset<T, equiposDeleteArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Equipos.
+     * @param {equiposUpdateArgs} args - Arguments to update one Equipos.
+     * @example
+     * // Update one Equipos
+     * const equipos = await prisma.equipos.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends equiposUpdateArgs>(args: Prisma.SelectSubset<T, equiposUpdateArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Equipos.
+     * @param {equiposDeleteManyArgs} args - Arguments to filter Equipos to delete.
+     * @example
+     * // Delete a few Equipos
+     * const { count } = await prisma.equipos.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends equiposDeleteManyArgs>(args?: Prisma.SelectSubset<T, equiposDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Equipos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {equiposUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Equipos
+     * const equipos = await prisma.equipos.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends equiposUpdateManyArgs>(args: Prisma.SelectSubset<T, equiposUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Equipos and returns the data updated in the database.
+     * @param {equiposUpdateManyAndReturnArgs} args - Arguments to update many Equipos.
+     * @example
+     * // Update many Equipos
+     * const equipos = await prisma.equipos.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Equipos and only return the `id`
+     * const equiposWithIdOnly = await prisma.equipos.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends equiposUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, equiposUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Equipos.
+     * @param {equiposUpsertArgs} args - Arguments to update or create a Equipos.
+     * @example
+     * // Update or create a Equipos
+     * const equipos = await prisma.equipos.upsert({
+     *   create: {
+     *     // ... data to create a Equipos
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Equipos we want to update
+     *   }
+     * })
+     */
+    upsert<T extends equiposUpsertArgs>(args: Prisma.SelectSubset<T, equiposUpsertArgs<ExtArgs>>): Prisma.Prisma__equiposClient<runtime.Types.Result.GetResult<Prisma.$equiposPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Equipos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {equiposCountArgs} args - Arguments to filter Equipos to count.
+     * @example
+     * // Count the number of Equipos
+     * const count = await prisma.equipos.count({
+     *   where: {
+     *     // ... the filter for the Equipos we want to count
+     *   }
+     * })
+    **/
+    count<T extends equiposCountArgs>(args?: Prisma.Subset<T, equiposCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], EquiposCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Equipos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquiposAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EquiposAggregateArgs>(args: Prisma.Subset<T, EquiposAggregateArgs>): Prisma.PrismaPromise<GetEquiposAggregateType<T>>;
+    /**
+     * Group by Equipos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {equiposGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends equiposGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: equiposGroupByArgs['orderBy'];
+    } : {
+        orderBy?: equiposGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, equiposGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEquiposGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the equipos model
+     */
+    readonly fields: equiposFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for equipos.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__equiposClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    componentes_equipos<T extends Prisma.equipos$componentes_equiposArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.equipos$componentes_equiposArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$componentes_equiposPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    proyectos<T extends Prisma.proyectosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.proyectosDefaultArgs<ExtArgs>>): Prisma.Prisma__proyectosClient<runtime.Types.Result.GetResult<Prisma.$proyectosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the equipos model
+ */
+export interface equiposFieldRefs {
+    readonly id: Prisma.FieldRef<"equipos", 'String'>;
+    readonly proyecto_id: Prisma.FieldRef<"equipos", 'String'>;
+    readonly tipo: Prisma.FieldRef<"equipos", 'String'>;
+    readonly nombre: Prisma.FieldRef<"equipos", 'String'>;
+    readonly modelo: Prisma.FieldRef<"equipos", 'String'>;
+    readonly ubicacion: Prisma.FieldRef<"equipos", 'String'>;
+    readonly numero_serie: Prisma.FieldRef<"equipos", 'String'>;
+    readonly ip: Prisma.FieldRef<"equipos", 'String'>;
+    readonly estado: Prisma.FieldRef<"equipos", 'String'>;
+    readonly notas: Prisma.FieldRef<"equipos", 'String'>;
+    readonly creado_por: Prisma.FieldRef<"equipos", 'String'>;
+    readonly creado_fecha: Prisma.FieldRef<"equipos", 'DateTime'>;
+    readonly modificado_por: Prisma.FieldRef<"equipos", 'String'>;
+    readonly modificado_fecha: Prisma.FieldRef<"equipos", 'DateTime'>;
+}
+/**
+ * equipos findUnique
+ */
+export type equiposFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * Filter, which equipos to fetch.
+     */
+    where: Prisma.equiposWhereUniqueInput;
+};
+/**
+ * equipos findUniqueOrThrow
+ */
+export type equiposFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * Filter, which equipos to fetch.
+     */
+    where: Prisma.equiposWhereUniqueInput;
+};
+/**
+ * equipos findFirst
+ */
+export type equiposFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * Filter, which equipos to fetch.
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of equipos to fetch.
+     */
+    orderBy?: Prisma.equiposOrderByWithRelationInput | Prisma.equiposOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for equipos.
+     */
+    cursor?: Prisma.equiposWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` equipos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` equipos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of equipos.
+     */
+    distinct?: Prisma.EquiposScalarFieldEnum | Prisma.EquiposScalarFieldEnum[];
+};
+/**
+ * equipos findFirstOrThrow
+ */
+export type equiposFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * Filter, which equipos to fetch.
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of equipos to fetch.
+     */
+    orderBy?: Prisma.equiposOrderByWithRelationInput | Prisma.equiposOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for equipos.
+     */
+    cursor?: Prisma.equiposWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` equipos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` equipos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of equipos.
+     */
+    distinct?: Prisma.EquiposScalarFieldEnum | Prisma.EquiposScalarFieldEnum[];
+};
+/**
+ * equipos findMany
+ */
+export type equiposFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * Filter, which equipos to fetch.
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of equipos to fetch.
+     */
+    orderBy?: Prisma.equiposOrderByWithRelationInput | Prisma.equiposOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing equipos.
+     */
+    cursor?: Prisma.equiposWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` equipos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` equipos.
+     */
+    skip?: number;
+    distinct?: Prisma.EquiposScalarFieldEnum | Prisma.EquiposScalarFieldEnum[];
+};
+/**
+ * equipos create
+ */
+export type equiposCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a equipos.
+     */
+    data: Prisma.XOR<Prisma.equiposCreateInput, Prisma.equiposUncheckedCreateInput>;
+};
+/**
+ * equipos createMany
+ */
+export type equiposCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many equipos.
+     */
+    data: Prisma.equiposCreateManyInput | Prisma.equiposCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * equipos createManyAndReturn
+ */
+export type equiposCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * The data used to create many equipos.
+     */
+    data: Prisma.equiposCreateManyInput | Prisma.equiposCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * equipos update
+ */
+export type equiposUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a equipos.
+     */
+    data: Prisma.XOR<Prisma.equiposUpdateInput, Prisma.equiposUncheckedUpdateInput>;
+    /**
+     * Choose, which equipos to update.
+     */
+    where: Prisma.equiposWhereUniqueInput;
+};
+/**
+ * equipos updateMany
+ */
+export type equiposUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update equipos.
+     */
+    data: Prisma.XOR<Prisma.equiposUpdateManyMutationInput, Prisma.equiposUncheckedUpdateManyInput>;
+    /**
+     * Filter which equipos to update
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * Limit how many equipos to update.
+     */
+    limit?: number;
+};
+/**
+ * equipos updateManyAndReturn
+ */
+export type equiposUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * The data used to update equipos.
+     */
+    data: Prisma.XOR<Prisma.equiposUpdateManyMutationInput, Prisma.equiposUncheckedUpdateManyInput>;
+    /**
+     * Filter which equipos to update
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * Limit how many equipos to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * equipos upsert
+ */
+export type equiposUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the equipos to update in case it exists.
+     */
+    where: Prisma.equiposWhereUniqueInput;
+    /**
+     * In case the equipos found by the `where` argument doesn't exist, create a new equipos with this data.
+     */
+    create: Prisma.XOR<Prisma.equiposCreateInput, Prisma.equiposUncheckedCreateInput>;
+    /**
+     * In case the equipos was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.equiposUpdateInput, Prisma.equiposUncheckedUpdateInput>;
+};
+/**
+ * equipos delete
+ */
+export type equiposDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+    /**
+     * Filter which equipos to delete.
+     */
+    where: Prisma.equiposWhereUniqueInput;
+};
+/**
+ * equipos deleteMany
+ */
+export type equiposDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which equipos to delete
+     */
+    where?: Prisma.equiposWhereInput;
+    /**
+     * Limit how many equipos to delete.
+     */
+    limit?: number;
+};
+/**
+ * equipos.componentes_equipos
+ */
+export type equipos$componentes_equiposArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the componentes_equipos
+     */
+    select?: Prisma.componentes_equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the componentes_equipos
+     */
+    omit?: Prisma.componentes_equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.componentes_equiposInclude<ExtArgs> | null;
+    where?: Prisma.componentes_equiposWhereInput;
+    orderBy?: Prisma.componentes_equiposOrderByWithRelationInput | Prisma.componentes_equiposOrderByWithRelationInput[];
+    cursor?: Prisma.componentes_equiposWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.Componentes_equiposScalarFieldEnum | Prisma.Componentes_equiposScalarFieldEnum[];
+};
+/**
+ * equipos without action
+ */
+export type equiposDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the equipos
+     */
+    select?: Prisma.equiposSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the equipos
+     */
+    omit?: Prisma.equiposOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.equiposInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=equipos.d.ts.map

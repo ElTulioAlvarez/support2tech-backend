@@ -1,36 +1,28 @@
-import type { NextFunction, Request, Response } from "express";
+import type { Request, Response, NextFunction } from "express";
 import type { VerifyAccessTokenUseCase } from "../../../application/use-cases/VerifyAccessTokenUseCase.js";
+import "../../../../../shared/presentation/http/types/request-context.js";
 
-declare global {
-  namespace Express {
-    interface Request {
-      auth?: {
-        userId: string;
-        email: string | null;
-        role?: string | null;
-      };
-    }
-  }
-}
-
-export const requireAuth = (verifyAccessTokenUseCase: VerifyAccessTokenUseCase) =>
-  async (req: Request, res: Response, next: NextFunction) => {
+export function requireAuth(verifyAccessTokenUseCase: VerifyAccessTokenUseCase) {
+  return async function (req: Request, res: Response, next: NextFunction) {
     try {
-      const header = req.headers.authorization ?? "";
-      const token = header.startsWith("Bearer ") ? header.slice(7).trim() : "";
+      const header = req.headers.authorization;
 
-      if (!token) {
-        return res.status(401).json({ message: "Missing bearer token" });
+      if (!header || !header.startsWith("Bearer ")) {
+        return res.status(401).json({ error: "Authorization bearer token requerido" });
       }
 
+      const token = header.slice("Bearer ".length).trim();
       const identity = await verifyAccessTokenUseCase.execute(token);
+
       req.auth = {
         userId: identity.userId,
         email: identity.email,
+        role: null,
       };
 
       next();
     } catch {
-      return res.status(401).json({ message: "Invalid token" });
+      return res.status(401).json({ error: "No autorizado" });
     }
   };
+}

@@ -5,10 +5,6 @@ export class GetRoleByUserIdUseCase {
 
   async execute(userId: string) {
     const profile = await this.profileRepository.findById(userId);
-
-    if (!profile) return null;
-    if (profile.estado !== "activo") return null;
-
-    return profile.rol;
+    return profile?.rol ?? null;
   }
 }
