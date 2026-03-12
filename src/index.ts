@@ -1,21 +1,19 @@
 import "dotenv/config";
-import { createServer } from "./presentation/http/server.js";
-import { prisma } from "./infrastructure/db/prismaClient.js";
+import { buildContainer } from "./bootstrap/container.js";
+import { createHttpServer } from "./bootstrap/server.js";
 
-const app = createServer();
 const port = Number(process.env.PORT ?? 3001);
 
-async function dbCheck() {
-  await prisma.$connect();
-  const now = await prisma.$queryRaw`select now()`;
-  console.log("DB OK:", now);
+async function main() {
+  const container = await buildContainer();
+  const app = createHttpServer(container);
+
+  app.listen(port, () => {
+    console.log(`API running on http://localhost:${port}`);
+  });
 }
 
-dbCheck().catch((e) => {
-  console.error("DB FAIL:", e);
+main().catch((error) => {
+  console.error("BOOT FAIL:", error);
   process.exit(1);
-});
-
-app.listen(port, () => {
-  console.log(`API running on http://localhost:${port}`);
 });
