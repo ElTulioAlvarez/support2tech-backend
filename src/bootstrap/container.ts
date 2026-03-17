@@ -5,24 +5,58 @@ import { createProjectsModule } from "../modules/projects/index.js";
 import { createCalendarModule } from "../modules/calendar/index.js";
 import { createReportsModule } from "../modules/reports/index.js";
 import { createTechniciansModule } from "../modules/technicians/index.js";
+import { createUsersModule } from "../modules/users/index.js";
 
 export function buildContainer() {
   const shared = {
     db: { prisma },
   };
 
-  const auth = createAuthModule({ prisma: shared.db.prisma });
-  const accounts = createAccountsModule({ prisma: shared.db.prisma, auth });
-  const projects = createProjectsModule({ prisma: shared.db.prisma, auth, accounts });
-  const calendar = createCalendarModule({ prisma: shared.db.prisma, auth, accounts });
-  const reports = createReportsModule({ prisma: shared.db.prisma, auth, accounts });
-  const technicians = createTechniciansModule({ prisma: shared.db.prisma, auth, accounts });
+  const auth = createAuthModule({
+    prisma: shared.db.prisma,
+  });
+
+  const accounts = createAccountsModule({
+    prisma: shared.db.prisma,
+    auth,
+  });
+
+  const users = createUsersModule({
+    prisma: shared.db.prisma,
+    tokenVerifier: auth.tokenVerifier,
+    currentUserResolver: accounts.currentUserResolver,
+  });
+
+  const projects = createProjectsModule({
+    prisma: shared.db.prisma,
+    auth,
+    accounts,
+  });
+
+  const calendar = createCalendarModule({
+    prisma: shared.db.prisma,
+    auth,
+    accounts,
+  });
+
+  const reports = createReportsModule({
+    prisma: shared.db.prisma,
+    auth,
+    accounts,
+  });
+
+  const technicians = createTechniciansModule({
+    prisma: shared.db.prisma,
+    auth,
+    accounts,
+  });
 
   return {
     shared,
     modules: {
       auth,
       accounts,
+      users,
       projects,
       calendar,
       reports,

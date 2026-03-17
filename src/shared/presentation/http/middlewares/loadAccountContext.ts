@@ -1,12 +1,13 @@
 import type { Request, Response, NextFunction } from "express";
 import type { CurrentUserResolver } from "../../../contracts/security.js";
+import { ForbiddenError, UnauthorizedError } from "../../../domain/errors/AppError.js";
 import "../types/request-context.js";
 
 export function loadAccountContext(currentUserResolver: CurrentUserResolver) {
-  return async function (req: Request, res: Response, next: NextFunction) {
+  return async function (req: Request, _res: Response, next: NextFunction) {
     try {
       if (!req.auth?.userId) {
-        return res.status(401).json({ error: "Usuario no autenticado" });
+        return next(new UnauthorizedError("Usuario no autenticado"));
       }
 
       const profile = await currentUserResolver.getActiveProfile(req.auth.userId);
@@ -19,8 +20,10 @@ export function loadAccountContext(currentUserResolver: CurrentUserResolver) {
 
       next();
     } catch (error) {
-      const message = error instanceof Error ? error.message : "No fue posible cargar el perfil";
-      return res.status(403).json({ error: message });
+      const message =
+        error instanceof Error ? error.message : "No fue posible cargar el perfil";
+
+      return next(new ForbiddenError(message));
     }
   };
 }
