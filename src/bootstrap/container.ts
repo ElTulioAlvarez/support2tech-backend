@@ -23,8 +23,8 @@ export function buildContainer() {
 
   const users = createUsersModule({
     prisma: shared.db.prisma,
-    tokenVerifier: auth.tokenVerifier,
-    currentUserResolver: accounts.currentUserResolver,
+    tokenVerifier: auth.contracts.tokenVerifier,
+    currentUserResolver: accounts.contracts.currentUserResolver,
   });
 
   const projects = createProjectsModule({

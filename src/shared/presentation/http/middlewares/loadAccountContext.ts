@@ -20,9 +20,7 @@ export function loadAccountContext(currentUserResolver: CurrentUserResolver) {
 
       next();
     } catch (error) {
-      const message =
-        error instanceof Error ? error.message : "No fue posible cargar el perfil";
-
+      const message = error instanceof Error ? error.message : "No fue posible cargar el perfil";
       return next(new ForbiddenError(message));
     }
   };

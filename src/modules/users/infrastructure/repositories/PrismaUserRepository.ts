@@ -27,6 +27,14 @@ export class PrismaUserRepository implements UserRepository {
         { id: { contains: filters.query, mode: "insensitive" } },
         { nombre: { contains: filters.query, mode: "insensitive" } },
         { telefono: { contains: filters.query, mode: "insensitive" } },
+        {
+          users: {
+            email: {
+              contains: filters.query,
+              mode: "insensitive",
+            },
+          },
+        },
       ];
     }
 
@@ -88,20 +96,31 @@ export class PrismaUserRepository implements UserRepository {
     rol: "admin" | "tecnico";
     estado: "activo" | "inactivo";
   }): Promise<UserEntity> {
-    const created = await this.prisma.profiles.create({
-      data: {
-        id: input.id,
-        nombre: input.nombre ?? null,
-        telefono: input.telefono ?? null,
-        rol: input.rol,
-        estado: input.estado,
-      },
-      include: {
-        users: true,
-      },
-    });
+    try {
+      const created = await this.prisma.profiles.create({
+        data: {
+          id: input.id,
+          nombre: input.nombre ?? null,
+          telefono: input.telefono ?? null,
+          rol: input.rol,
+          estado: input.estado,
+        },
+        include: {
+          users: true,
+        },
+      });
 
-    return this.toEntity(created);
+      return this.toEntity(created);
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2002"
+      ) {
+        throw new Error("Ya existe un perfil para este usuario.");
+      }
+
+      throw error;
+    }
   }
 
   async update(id: string, input: UpdateUserInput): Promise<UserEntity | null> {
@@ -130,12 +149,23 @@ export class PrismaUserRepository implements UserRepository {
   async delete(id: string): Promise<boolean> {
     const exists = await this.prisma.profiles.findUnique({
       where: { id },
+      select: {
+        id: true,
+        estado: true,
+      },
     });
 
     if (!exists) return false;
 
-    await this.prisma.profiles.delete({
+    if (exists.estado === "inactivo") {
+      return true;
+    }
+
+    await this.prisma.profiles.update({
       where: { id },
+      data: {
+        estado: "inactivo",
+      },
     });
 
     return true;
